@@ -1,22 +1,22 @@
 <h1>New User</h1>
 
-<%= form_tag users_path, method: :post do %>
+<%= form_with model: @user do |form| %>
   <p>
-    <%= label_tag "username", "Username:" %>
-    <%= text_field_tag "username" %>
+    <%= form.label :username, "Your user name here:" %>
+    <%= form.text_field :username, placeholder: "Bob the builder" %>
   </p>
 
   <p>
-    <%= label_tag "email", "Email:" %>
-    <%= email_field_tag "email" %>
+    <%= form.label :email, "Put a valid email:" %>
+    <%= form.email_field :email, placeholder: "bob@example.com" %>
   </p>
 
   <p>
-    <%= label_tag "password", "Password:" %>
-    <%= password_field_tag "password" %>
+    <%= form.label :password, "Create a strong password:" %>
+    <%= form.password_field :password %>
   </p>
 
   <p>
-    <%= button_tag "Create user" %>
+    <%= form.button %>
   </p>
 <% end %>
