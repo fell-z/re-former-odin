@@ -1,0 +1,28 @@
+<% if user.errors.any? %>
+  <ul>
+    <% user.errors.each do |e| %>
+      <li><%= e.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: user do |form| %>
+  <p>
+    <%= form.label :username, "Your user name here:" %>
+    <%= form.text_field :username, placeholder: "Bob the builder" %>
+  </p>
+
+  <p>
+    <%= form.label :email, "Put a valid email:" %>
+    <%= form.email_field :email, placeholder: "bob@example.com" %>
+  </p>
+
+  <p>
+    <%= form.label :password, "Create a strong password:" %>
+    <%= form.password_field :password %>
+  </p>
+
+  <p>
+    <%= form.button %>
+  </p>
+<% end %>
